@@ -60,7 +60,7 @@ class ProductGalleryController extends Controller
         );
 
         ProductGallery::create($data);
-        return redirect()->route('product-galleries.index');
+        return redirect()->route('product-galleries.index')->withToastSuccess('Data berhasil disimpan!');;
     }
 
     /**
