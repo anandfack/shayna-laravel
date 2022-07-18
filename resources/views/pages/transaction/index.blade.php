@@ -14,7 +14,7 @@
                             <table class="table">
                                 <thead>
                                     <tr>
-                                        <th>#</th>
+                                        <th>Number</th>
                                         <th>Nama</th>
                                         <th>Email</th>
                                         <th>Nomor</th>
@@ -24,9 +24,13 @@
                                     </tr>
                                 </thead>
                                 <tbody>
+                                    @php
+                                        $i = 1;
+                                    @endphp
                                     @forelse ($items as $item)
                                     <tr>
-                                        <td>{{ $item->id }}</td>
+                                        <td>{{ $i++ }}</td>
+                                        {{-- <td>{{ $item->id }}</td> --}}
                                         <td>{{ $item->name }}</td>
                                         <td>{{ $item->email }}</td>
                                         <td>{{ $item->number }}</td>
@@ -71,7 +75,8 @@
                                                     class="d-inline">
                                                 @csrf
                                                 @method('delete')
-                                                <button class="btn btn-danger btn-sm">
+                                                <button class="btn btn-danger btn-sm"
+                                                        onclick="return confirm('Apa anda yakin?')">
                                                     <i class="fa fa-trash"></i>
                                                 </button>
                                             </form>

@@ -14,7 +14,7 @@
                             <table class="table">
                                 <thead>
                                     <tr>
-                                        <th>#</th>
+                                        <th>Number</th>
                                         <th>Nama Barang</th>
                                         <th>Foto</th>
                                         <th>Default</th>
@@ -22,9 +22,13 @@
                                     </tr>
                                 </thead>
                                 <tbody>
+                                    @php
+                                        $i = 1;
+                                    @endphp
                                     @forelse ($items as $item)
                                     <tr>
-                                        <td>{{ $item->id }}</td>
+                                        <td>{{ $i++ }}</td>
+                                        {{-- <td>{{ $item->id }}</td> --}}
                                         <td>{{ $item->product->name }}</td>
                                         <td><img src="{{ url($item->photo) }}" alt=""></td>
                                         <td>{{ $item->is_default ? 'Ya' : 'Tidak' }}</td>
@@ -32,7 +36,8 @@
                                             <form action="{{ route('product-galleries.destroy', $item->id) }}" method="post" class="d-inline">
                                                 @csrf
                                                 @method('delete')
-                                                <button class="btn btn-danger btn-sm">
+                                                <button class="btn btn-danger btn-sm"
+                                                        onclick="return confirm('Apakah anda yakin?')">
                                                     <i class="fa fa-trash"></i>
                                                 </button>
                                             </form>

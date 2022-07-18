@@ -14,7 +14,7 @@
                             <table class="table">
                                 <thead>
                                     <tr>
-                                        <th>#</th>
+                                        <th>Number</th>
                                         <th>Name</th>
                                         <th>type</th>
                                         <th>Price</th>
@@ -23,9 +23,13 @@
                                     </tr>
                                 </thead>
                                 <tbody>
+                                    @php
+                                        $i = 1;
+                                    @endphp
                                     @forelse ($items as $item)
                                     <tr>
-                                        <td>{{ $item->id }}</td>
+                                        <td>{{ $i++ }}</td>
+                                        {{-- <td>{{ $item->id }}</td> --}}
                                         <td>{{ $item->name }}</td>
                                         <td>{{ $item->type }}</td>
                                         <td>{{ $item->price }}</td>
@@ -37,7 +41,7 @@
                                             <a href="{{ route('product.edit', $item->id) }}" class="btn btn-primary btn-sm">
                                                 <i class="fa fa-pencil"></i>
                                             </a>                                            
-                                            <a  href="#" 
+                                            {{-- <a  href="#" 
                                                 data-id="{{ $item->id }}" 
                                                 class="btn btn-danger btn-sm delete-confirm">
                                                     <i class="fa fa-trash"></i>
@@ -48,14 +52,15 @@
                                                             @csrf
                                                             @method('delete')
                                                         </form>
-                                            </a>
-                                            {{-- <form action="{{ route('product.destroy', $item->id) }}" method="post" class="d-inline swal-confirm">
+                                            </a> --}}
+                                            <form action="{{ route('product.destroy', $item->id) }}" method="post" class="d-inline swal-confirm">
                                                 @csrf
                                                 @method('delete')
-                                                <button class="btn btn-danger btn-sm">
+                                                <button class="btn btn-danger btn-sm"
+                                                        onclick="return confirm('Apakah anda yakin?')">
                                                     <i class="fa fa-trash"></i>
                                                 </button>
-                                            </form> --}}
+                                            </form>
                                         </td>
                                     </tr>
                                     @empty
