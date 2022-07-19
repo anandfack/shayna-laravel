@@ -27,6 +27,10 @@
                     <li class="">
                         <a href="{{ route('transactions.index') }}"> <i class="menu-icon fa fa-list"></i>Lihat Transaksi</a>
                     </li>
+                    <li class="menu-title">Pengguna</li><!-- /.menu-title -->
+                    <li class="">
+                        <a href="{{ route('user.index') }}"> <i class="menu-icon fa fa-user"></i>Daftar Pengguna</a>
+                    </li>
                 </ul>
             </div><!-- /.navbar-collapse -->
         </nav>
