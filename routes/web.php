@@ -22,7 +22,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
 
-Auth::routes(['register' => false]);
+Auth::routes(['register' => true]);
 
 Route::get('/product/{id}/gallery', [ProductController::class, 'show']);
 Route::resource('product', ProductController::class);
