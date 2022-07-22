@@ -33,7 +33,7 @@
                                             <a href="#" class="btn btn-primary btn-sm">
                                                 <i class="fa fa-pencil"></i>
                                             </a>                                            
-                                            <form action="#" method="post" class="d-inline swal-confirm">
+                                            <form action="{{ route('user.destroy', $item->id) }}" method="post" class="d-inline swal-confirm">
                                                 @csrf
                                                 @method('delete')
                                                 <button class="btn btn-danger btn-sm"
